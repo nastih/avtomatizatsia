@@ -1,0 +1,202 @@
+
+$white: #fff;
+$black_48: rgba(0, 0, 0, 0.48);
+$color_astral_approx: rgb(49,126,181);
+$color_bright_turquoise_approx: rgb(0,229,211);
+$black_10: rgba(0,0,0,.1);
+$black_20: rgba(0,0,0,.2);
+$white_80: rgba(255,255,255,0.8);
+$color_pacific_blue_approx: #09c;
+$black_30: rgba(0,0,0,0.3);
+
+
+$font_0: Helvetica;
+$font_1: sans-serif;
+
+
+$url_0: url(normalize.css);
+$url_1: url(../img/barber.jpeg);
+
+%extend_1 {
+	width: 25px;
+	height: 3px;
+	background-color: $white;
+	margin: 3px 0;
+	transition: 0.4s;
+}
+
+
+@import $url_0;
+.barbershop {
+	padding: 40px;
+}
+.barbershop-container {
+	font-family: $font_0, $font_1;
+	font-weight: lighter;
+	color: $white;
+	margin: 30px auto;
+	width: 60%;
+	padding: 20% 40px;
+	position: relative;
+	border-radius: 10px;
+	background: $url_1 center center no-repeat;
+	background-size: cover;
+	box-shadow: 0 26px 59.94px 21.06px $black_48;
+	overflow: hidden;
+	&:after {
+		content: "";
+		top: 0;
+		left: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		opacity: 0.8;
+		background-image: linear-gradient(to top, $color_astral_approx 0, $color_bright_turquoise_approx 98%);
+	}
+}
+.barbershop-heading {
+	color: $white;
+	text-shadow: 0 2px 3px $black_10;
+	left: 0;
+	top: 40%;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: 4vw;
+	text-align: center;
+	z-index: 2;
+	position: absolute;
+	width: 100%;
+}
+.barbershop-buttons {
+	position: absolute;
+	z-index: 2;
+	text-align: center;
+	width: 100%;
+	left: 0;
+}
+.switch-container {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+	z-index: 2;
+}
+.switch-label {
+	display: inline-block;
+	font-size: 0.9em;
+	margin: 0 5px;
+	letter-spacing: 1px;
+}
+.onoffswitch {
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	top: 5px;
+}
+.onoffswitch-checkbox {
+	display: none;
+	&:checked + .onoffswitch-label {
+		background-color: $white;
+		&:before {
+			right: 0;
+			box-shadow: -4px 1px 10px 1px $black_20;
+		}
+	}
+}
+.onoffswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	height: 20px;
+	padding: 0;
+	line-height: 20px;
+	border-radius: 20px;
+	background-color: $white;
+	transition: background-color 0.3s ease-in;
+	&:before {
+		content: "";
+		display: block;
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 20px;
+		border-radius: 20px;
+		box-shadow: 4px 1px 10px 1px $black_20;
+		transition: all 0.3s ease-in 0s;
+	}
+}
+.barbershop-phone {
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	z-index: 2;
+	> a {
+		color: $white;
+		text-decoration: none;
+		letter-spacing: 1px;
+	}
+}
+.btn {
+	border-radius: 30px;
+	padding: 7px 25px;
+	text-align: center;
+	background: none;
+	border: 1px solid $white;
+	color: $white;
+	letter-spacing: 1px;
+	margin: 30px 10px;
+	box-shadow: 0 2px 3px $black_10;
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		background: $white_80;
+		color: $color_pacific_blue_approx;
+	}
+	&:active {
+		background: $white_80;
+		color: $color_pacific_blue_approx;
+		box-shadow: inset 0 2px 3px 2px $black_30;
+		border: 1px solid $black_30;
+	}
+	&.btn-active {
+		background: $white;
+		color: $color_pacific_blue_approx;
+		&:hover {
+			background: $color_pacific_blue_approx;
+			border-color: $color_pacific_blue_approx;
+			color: $white;
+		}
+	}
+}
+.menu {
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	z-index: 2;
+}
+.bar1 {
+	@extend %extend_1;
+}
+.bar2 {
+	@extend %extend_1;
+}
+.bar3 {
+	@extend %extend_1;
+}
+.change {
+	.bar1 {
+		transform: rotate(-45deg) translate(-5px, 6px);
+	}
+	.bar2 {
+		opacity: 0;
+	}
+	.bar3 {
+		transform: rotate(45deg) translate(-2px, -3px);
+	}
+}
